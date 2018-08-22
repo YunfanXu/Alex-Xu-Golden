@@ -5,12 +5,8 @@ function Display(props) {
   return <div>{props.count}</div>;
 }
 
-Display.defaultProps = {
-  count: 0,
-};
-
 Display.propTypes = {
-  count: PropTypes.number,
+  count: PropTypes.number.isRequired,
 };
 
 export default Display;
