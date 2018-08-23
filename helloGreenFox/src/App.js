@@ -1,36 +1,15 @@
-import React, { Component } from 'react';
-import Button from './Button';
-import Display from './Display';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      count: 0,
-    };
-    this.increment = this.increment.bind(this);
-    this.decrement = this.decrement.bind(this);
-  }
+const App = ({ children }) => (
+  <div>
+    {children}
+  </div>
+);
 
-  increment() {
-    this.setState(prevState => ({ count: prevState.count + 1 }));
-  }
+App.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
-  decrement() {
-    if (this.state.count > 0) {
-      this.setState(prevState => ({ count: prevState.count - 1 }));
-    }
-  }
-
-  render() {
-    return (
-      <div>
-        <Button func={this.increment} name="Buy One" />
-        <Display count={this.state.count} />
-        <Button func={this.decrement} name="Eat One" />
-      </div>
-    );
-  }
-}
 
 export default App;
